@@ -26,7 +26,7 @@ class ytsearch(commands.Cog):
         
         html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + searchTerm)
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
-        for ind in range(5):
+        for ind in range(3):
             await ctx.send("https://www.youtube.com/watch?v=" + video_ids[ind])
 
 def setup(bot: commands.Bot):

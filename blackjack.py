@@ -15,6 +15,8 @@ class blackjack(commands.Cog):
         def cardpull(): # Generates random card
             playerCard = randint(1, 13)
             card = ''
+            if playerCard == 1:
+                card = 'A'
             if playerCard == 11:
                 card = 'J'
                 playerCard = 10
