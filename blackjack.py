@@ -14,7 +14,15 @@ class blackjack(commands.Cog):
 
         def cardpull(): # Generates random card
             playerCard = randint(1, 13)
-            if playerCard > 10:
+            card = ''
+            if playerCard == 11:
+                card = 'J'
+                playerCard = 10
+            elif playerCard == 12:
+                card = 'Q'
+                playerCard = 10
+            elif playerCard == 13:
+                card = 'K'
                 playerCard = 10
 
             suit = randint(1, 4)
@@ -27,7 +35,7 @@ class blackjack(commands.Cog):
             elif suit == 4:
                 emote = ':spades:'
 
-            return [playerCard, emote]
+            return [playerCard, emote, card]
 
         message = await ctx.send("Type hit to start")
         check = lambda m: m.author == ctx.author and m.channel == ctx.channel
@@ -44,7 +52,10 @@ class blackjack(commands.Cog):
 
             while playerTot < 21 and confirm.content == 'hit':
                 player = cardpull()
-                await ctx.send(player[1] + ' ' + str(player[0]))
+                if player[2] != '':
+                    await ctx.send(player[1] + ' ' + str(player[2]))
+                else:
+                    await ctx.send(player[1] + ' ' + str(player[0]))
                 playerTot += player[0]
 
                 if playerTot > 21:
