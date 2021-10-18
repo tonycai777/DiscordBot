@@ -18,8 +18,4 @@ bot.load_extension("ytsearch")
 bot.load_extension("weather")
 bot.load_extension("ErrorHandler")
 
-@commands.command(name = "hello")
-async def bot(ctx: commands.Context):
-    await ctx.send("Hello World")
-
 bot.run("ODk4MzgzMDEyMzQ0MDA0NjE5.YWjaYQ.3_e2ehvAZNGJLRnR2BaxnUc10JM")
