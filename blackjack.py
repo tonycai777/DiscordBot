@@ -17,7 +17,7 @@ class blackjack(commands.Cog):
             card = ''
             if playerCard == 1:
                 card = 'A'
-            if playerCard == 11:
+            elif playerCard == 11:
                 card = 'J'
                 playerCard = 10
             elif playerCard == 12:
@@ -60,12 +60,12 @@ class blackjack(commands.Cog):
                     await ctx.send(player[1] + ' ' + str(player[0]))
                 playerTot += player[0]
 
-                if playerTot > 21:
+                if playerTot >= 21:
                     break
 
                 computer = cardpull()
                 computerTot += computer[0]
-                if computerTot > 21 and playerTot < 21:
+                if computerTot >= 21 and playerTot < 21:
                     break
                 
                 message = await ctx.send("hit or stand")
@@ -83,6 +83,8 @@ class blackjack(commands.Cog):
                 winner = 'Player'
             elif computerTot > playerTot and computerTot <= 21:
                 winner = 'Computer'
+            elif playerTot == computerTot and playerTot <= 21:
+                winner = 'Tie'
             elif playerTot > 21:
                 winner = 'Computer'
             elif computerTot > 21:
