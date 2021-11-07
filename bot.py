@@ -18,5 +18,6 @@ bot.load_extension("ytsearch")
 bot.load_extension("weather")
 bot.load_extension("ErrorHandler")
 bot.load_extension("miscCommand")
+bot.load_extension("tictac")
 
 bot.run("ODk4MzgzMDEyMzQ0MDA0NjE5.YWjaYQ.3_e2ehvAZNGJLRnR2BaxnUc10JM")
