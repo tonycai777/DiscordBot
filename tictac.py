@@ -101,6 +101,7 @@ class tictactoe(commands.Cog):
                 continue
             else:
                 board[current_move[0]][current_move[1]] = 'O '
+                count += 1
             
             checkwin = find_winner(board)
             if checkwin != 'Draw':
@@ -115,14 +116,13 @@ class tictactoe(commands.Cog):
                     compfirst_pos = random.randint(0, 2)
                     compsec_pos = random.randint(0, 2)
                 board[compfirst_pos][compsec_pos] = 'X '
+                count += 1
                 checkwin = find_winner(board)
                 if checkwin != 'Draw':
                     await ctx.send('Computer wins!')
                     mesBoard = print_board(board)
                     await ctx.send(mesBoard)
                     break
-
-            count += 1
 
         checkwin = find_winner(board)
         if checkwin == 'Draw':
