@@ -10,21 +10,27 @@ class weather(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="weather")
-    async def weather(self, ctx: commands.Context):
+    @commands.command(name="weather", help = 'Displays weather for specified city')
+    async def weather(self, ctx: commands.Context, search_city = '', *args):
 
-        message = await ctx.send("Enter a city")
-        check = lambda m: m.author == ctx.author and m.channel == ctx.channel
+        if search_city == '':
+            message = await ctx.send("Enter a city")
+            check = lambda m: m.author == ctx.author and m.channel == ctx.channel
 
-        try:
-            confirm = await self.bot.wait_for("message", check=check, timeout=30)
-        except asyncio.TimeoutError:
-            await message.edit(content="Search cancelled, timed out.")
-            return
+            try:
+                confirm = await self.bot.wait_for("message", check=check, timeout=30)
+            except asyncio.TimeoutError:
+                await message.edit(content="Search cancelled, timed out.")
+                return
 
-        if confirm.content != '':
-            city_name = confirm.content
-            city_name = str.title(city_name)
+            if confirm.content != '':
+                city_name = confirm.content
+                city_name = str.title(city_name)
+        else: 
+            city_name = search_city
+            for extra in args:
+                city_name += ' ' + extra
+
         complete_url = "https://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&appid=" + api_key
 
         response = requests.get(complete_url)

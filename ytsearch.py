@@ -8,21 +8,24 @@ class ytsearch(commands.Cog):
         self.bot = bot
 
     @commands.command(name="video")
-    async def ping(self, ctx: commands.Context):
+    async def ping(self, ctx: commands.Context, search = ''):
         #Searches for yt video!
 
-        message = await ctx.send("Enter a search term")
-        check = lambda m: m.author == ctx.author and m.channel == ctx.channel
+        if search == '':
+            message = await ctx.send("Enter a search term")
+            check = lambda m: m.author == ctx.author and m.channel == ctx.channel
 
-        try:
-            confirm = await self.bot.wait_for("message", check=check, timeout=30)
-        except asyncio.TimeoutError:
-            await message.edit(content="Search cancelled, timed out.")
-            return
+            try:
+                confirm = await self.bot.wait_for("message", check=check, timeout=30)
+            except asyncio.TimeoutError:
+                await message.edit(content="Search cancelled, timed out.")
+                return
 
-        if confirm.content != '':
-            searchTerm = confirm.content
-            searchTerm = searchTerm.replace(' ','+')
+            if confirm.content != '':
+                searchTerm = confirm.content
+                searchTerm = searchTerm.replace(' ','+')
+        else:
+            searchTerm = search
         
         html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + searchTerm)
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
