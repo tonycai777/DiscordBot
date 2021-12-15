@@ -10,7 +10,7 @@ class weather(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="weather", help = 'Displays weather for specified city')
+    @commands.command(name="weather")
     async def weather(self, ctx: commands.Context, search_city = '', *args):
 
         if search_city == '':
