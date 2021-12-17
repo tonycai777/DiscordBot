@@ -7,7 +7,7 @@ class ytsearch(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="video", description = 'Search for 5 videos on YouTube', help = '\\video TF2')
+    @commands.command(name="video", description = 'Search for 3 videos on YouTube', help = '\\video TF2')
     async def ping(self, ctx: commands.Context, *search):
         #Searches for yt video!
 
