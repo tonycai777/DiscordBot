@@ -8,7 +8,7 @@ class blackjack(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name = 'bj')
+    @commands.command(name = 'bj', description = 'Play crude game of blackjack')
     async def bj(self, ctx: commands.Context):
         # Super basic black jack game
 

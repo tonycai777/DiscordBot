@@ -7,7 +7,7 @@ class tictactoe(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="ttt")
+    @commands.command(name="ttt", description = '\\Play tictactoe')
     async def game(self, ctx: commands.Context):
 
         def vertical(board: list) -> str:

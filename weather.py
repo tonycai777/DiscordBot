@@ -10,10 +10,10 @@ class weather(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="weather")
-    async def weather(self, ctx: commands.Context, search_city = '', *args):
+    @commands.command(name="weather", description = "Search for a city's weather", help = "\\weather Los Angeles")
+    async def weather(self, ctx: commands.Context, *search_city):
 
-        if search_city == '':
+        if not search_city:
             message = await ctx.send("Enter a city")
             check = lambda m: m.author == ctx.author and m.channel == ctx.channel
 
@@ -27,9 +27,9 @@ class weather(commands.Cog):
                 city_name = confirm.content
                 city_name = str.title(city_name)
         else: 
-            city_name = search_city
-            for extra in args:
-                city_name += ' ' + extra
+            city_name = ''
+            for name in search_city:
+                city_name += ' ' + name
 
         complete_url = "https://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&appid=" + api_key
 
