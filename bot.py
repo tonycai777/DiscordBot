@@ -21,5 +21,7 @@ bot.load_extension("ErrorHandler")
 bot.load_extension("miscCommand")
 bot.load_extension("tictac")
 bot.load_extension("customhelp")
+bot.load_extension("credits")
+bot.load_extension("betting")
 
 bot.run("ODk4MzgzMDEyMzQ0MDA0NjE5.YWjaYQ.3_e2ehvAZNGJLRnR2BaxnUc10JM")

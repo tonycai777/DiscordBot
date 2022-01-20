@@ -14,6 +14,7 @@ class customhelp(commands.Cog):
             embed = discord.Embed(title="Commands ", colour=0x87CEEB, timestamp=datetime.utcnow())
             embed.add_field(name="Fun", value='ping\nttt\nbj')
             embed.add_field(name="Information", value= "weather\nvideo")
+            embed.add_field(name='Betting', value='bal\nroll')
             await ctx.send(embed=embed)
         else:
             command = args[0]
