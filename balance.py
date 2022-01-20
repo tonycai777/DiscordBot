@@ -17,8 +17,6 @@ def get_user(user_id):
         count += 1
         bal_list.append(nlist)
     
-    print(bal_list)
-    
     return([bal_list, check])
 
 def get_bal(user_id):

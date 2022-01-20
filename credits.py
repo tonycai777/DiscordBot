@@ -39,5 +39,12 @@ class credits(commands.Cog):
         else:
             await ctx.send("Stanvord only :smiley:")
 
+    @commands.command(name="daily", description = 'Gets your daily credits')
+    async def daily(self, ctx:commands.Context):
+        import balance
+        balance.update_bal(ctx.message.author.id, 1000)
+        yourbal = balance.get_bal(ctx.message.author.id)
+        await ctx.send("You now have {} credits".format(yourbal))
+
 def setup(bot: commands.Bot):
     bot.add_cog(credits(bot))
