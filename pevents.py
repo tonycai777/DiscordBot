@@ -24,6 +24,7 @@ class PEvents(commands.Cog):
         embed.set_author(name = '')
 
         # If index % 5 == 2, check if the event is in the future. If not, add it to the embed.
+        count = 0
         for i in range(len(rumors)):
             if i % 5 == 2:
                 if now < rumors[i]:
@@ -32,6 +33,11 @@ class PEvents(commands.Cog):
                         # Get time difference between now and the event
                         time_diff = datetime.strptime(rumors[i], '%Y-%m-%d %H:%M:%S UTC') - datetime.strptime(now, '%Y-%m-%d %H:%M:%S UTC')
                         embed.add_field(name=rumors[i-2], value='Starting: ' + rumors[i] + '\nIn: ' + str(time_diff))
+                        count += 1
+
+        # If no events are found, add a message to the embed
+        if count == 0:
+            embed.add_field(name="No upcoming events found", value="Check https://github.com/pm-events/pm-events.github.io/ if there are any new leaks")
 
         await ctx.send(embed=embed)
 
