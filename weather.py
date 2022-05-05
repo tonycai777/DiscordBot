@@ -46,7 +46,7 @@ class weather(commands.Cog):
             weather_description = z[0]["description"]
             weather_description = weather_description.capitalize()
 
-            embed = discord.Embed(title="Weather in " + city_name, colour=0x87CEEB, timestamp=datetime.utcnow())
+            embed = discord.Embed(title="Weather in " + city_name, color=0x87CEEB, timestamp=datetime.utcnow())
             embed.set_author(name="Weather", icon_url="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/282/sun-behind-small-cloud_1f324-fe0f.png")
             embed.add_field(name="Temperature (in Fahrenheit)", value=current_temperature, inline=True)
             embed.add_field(name="Description", value=weather_description, inline=False)

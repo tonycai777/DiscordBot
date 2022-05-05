@@ -11,7 +11,7 @@ class customhelp(commands.Cog):
     @commands.command(name="help")
     async def help(self, ctx: commands.Context, *args):
         if not args:
-            embed = discord.Embed(title="Commands ", colour=0x87CEEB, timestamp=datetime.utcnow())
+            embed = discord.Embed(title="Commands ", color=0x87CEEB, timestamp=datetime.utcnow())
             embed.add_field(name="Fun", value='ping\nttt\nbj')
             embed.add_field(name="Information", value= "weather\nvideo\npevents")
             embed.add_field(name='Betting', value='bal\ndaily\nroll')

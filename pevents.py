@@ -20,7 +20,7 @@ class PEvents(commands.Cog):
         for i in range(len(rumors)):
             rumors[i] = rumors[i].strip()
 
-        embed = discord.Embed(title="Upcoming Pokemon Masters Events:", colour=0xFF0000, timestamp=datetime.utcnow())
+        embed = discord.Embed(title="Upcoming Pokemon Masters Events:", color=0xFF0000, timestamp=datetime.utcnow())
         embed.set_author(name = '')
 
         # If index % 5 == 2, check if the event is in the future. If not, add it to the embed.
