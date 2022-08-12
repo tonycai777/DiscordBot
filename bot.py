@@ -25,4 +25,4 @@ bot.load_extension("credits")
 bot.load_extension("betting")
 bot.load_extension("pevents")
 
-bot.run("ODk4MzgzMDEyMzQ0MDA0NjE5.YWjaYQ.3_e2ehvAZNGJLRnR2BaxnUc10JM")
+bot.run("ODk4MzgzMDEyMzQ0MDA0NjE5.G1Fn74.t4YnExITgDl_WzFQxexfHwrVyge2z1bHvi3BF0")
